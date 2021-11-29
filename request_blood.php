@@ -8,7 +8,7 @@
     include 'database.php';
 
     $unit=$_POST['unit'];
-    $reason=$_POST['reason'];
+    $reason=$_POST['Reason'];
     $request_date=date("Y/m/d");
     $requestor_id=$_SESSION['userid'];
     $request_id=uniqid();
