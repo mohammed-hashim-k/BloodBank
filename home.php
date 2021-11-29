@@ -15,32 +15,32 @@
 
 
 
- 
+
 
     .row{
         padding: 5px;
     }
-    .fa-tint{     
-        color: red;    
+    .fa-tint{
+        color: red;
     }
     .blood{
         float: right;
     }
-    .fa-users{     
-        color: blue; 
-        font-size: 3ex;   
+    .fa-users{
+        color: blue;
+        font-size: 3ex;
     }
-    .fa-spinner{     
-        color: blue; 
-        font-size: 3ex;   
+    .fa-spinner{
+        color: blue;
+        font-size: 3ex;
     }
-    .fa-check-circle{     
-        color: blue; 
-        font-size: 3ex;   
+    .fa-check-circle{
+        color: blue;
+        font-size: 3ex;
     }
-    .xyz{     
-        color: blue; 
-        font-size: 3ex;   
+    .xyz{
+        color: blue;
+        font-size: 3ex;
     }
 
 *{
@@ -84,7 +84,7 @@ body{
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
-}    
+}
 
 .wrapper .sidebar ul li a{
   color: #bdb8d7;
@@ -98,11 +98,11 @@ body{
 .wrapper .sidebar ul li:hover{
   background-color: #594f8d;
 }
-    
+
 .wrapper .sidebar ul li:hover a{
   color: #fff;
 }
- 
+
 .wrapper .sidebar .social_media{
   position: absolute;
   bottom: 0;
@@ -165,30 +165,30 @@ body{
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-danger">
         <a style="color:white;" class="navbar-brand" href="/"><i class="fab fa-gratipay"></i>&nbsp;<font face = "Comic sans MS" size ="4">Blood Bank Management System</font></a>
-        
-      
+
+
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" style="color: white;" href="/logout">Logout &nbsp; <i class="fas fa-sign-out-alt"></i></a>
                 </li>
-                
+
             </ul>
         </div>
       </nav>
 <br><br>
 <div class="wrapper">
     <div class="sidebar">
-        
+
         <ul>
             <li><a style="text-decoration:none;" href="/"><i class="fas fa-home"></i>Home</a></li>
             <li><a style="text-decoration:none;" href="donate_blood.html"><i class="fas fa-hand-holding-medical"></i>Donate Blood</a></li>
             <li><a style="text-decoration:none;" href="/donor/donation-history"><i class="fas fa-history"></i>Donation History</a></li>
-            <li><a style="text-decoration:none;" href="/donor/make-request"><i class="fas fa-sync-alt"></i>Blood Request</a></li>
+            <li><a style="text-decoration:none;" href="request_blood.html"><i class="fas fa-sync-alt"></i>Blood Request</a></li>
             <li><a style="text-decoration:none;" href="/donor/request-history"><i class="fas fa-history"></i>Request History</a></li>
 
-        
-        </ul> 
+
+        </ul>
 
     </div>
     <div class="main_content">
@@ -206,12 +206,12 @@ body{
                             <h5 class="card-title">User ID</h5>
                             <!-- print userid -->
                             <p class="card-text"><?php
-                           
+
                             echo $_SESSION['userid'];
-                           
+
                             ?></p>
 
-                           
+
                         </div>
                     </div>
                 </div>
@@ -221,13 +221,13 @@ body{
                             <h5 class="card-title">User Name</h5>
                             <p class="card-text">
                             <?php
-                           
+
                            echo $_SESSION['first_name'] . " " . $_SESSION['last_name'];
-                           
+
                             ?>
                             </p>
-                          
-                           
+
+
                             </p>
                         </div>
                     </div>
@@ -238,9 +238,9 @@ body{
                             <h5 class="card-title">Mobile Number</h5>
                             <p class="card-text">
                             <?php
-                           
+
                            echo $_SESSION['phone_number'];
-                          
+
                            ?>
                             </p>
                         </div>
@@ -254,9 +254,9 @@ body{
                             <h5 class="card-title">Blood Type</h5>
                             <p class="card-text">
                             <?php
-                           
+
                            echo $_SESSION['blood_type'];
-                          
+
                            ?>
                             </p>
                         </div>
@@ -267,9 +267,9 @@ body{
                         <div class="card-body">
                             <h5 class="card-title">Age</h5>
                             <p class="card-text"><?php
-                           
+
                            echo $_SESSION['age'];
-                          
+
                            ?></p>
                         </div>
                     </div>
