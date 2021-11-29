@@ -9,8 +9,8 @@
     mysqli_select_db($con,"blood_bank");
     $userid=$_POST['userid'];
     $password=$_POST['password'];
-    $firstname=$_POST['firstname'];
-    $lastname=$_POST['lastname'];
+    $firstname=$_POST['first_name'];
+    $lastname=$_POST['last_name'];
     $phone_number=$_POST['phone_number'];
     $gender=$_POST['gender'];
     $blood_type=$_POST['blood_type'];
