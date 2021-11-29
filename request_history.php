@@ -66,7 +66,7 @@
         include 'database.php';
 
         $requestor_id = $_SESSION['userid'];
-        $sql = "SELECT unit, request_date, reasons, status, action FROM blood_request WHERE requester_id = '$requestor_id'";
+        $sql = "SELECT unit, request_id, request_date, reasons, status, action FROM blood_request WHERE requester_id = '$requestor_id'";
         $result = mysqli_query($con,$sql);
         $num_rows = mysqli_num_rows($result);
 
@@ -85,6 +85,7 @@
                 <thead class="bg-info">
                     <tr>
 
+                        <th scope="col">Request ID</th>
                         <th scope="col">Request Date</th>
                         <th scope="col">Unit</th>
                         <th scope="col">Reasons</th>
@@ -101,6 +102,7 @@
                     while ($row = mysqli_fetch_assoc($result)){
 
                         echo "<tr>";
+                            echo "<td>" . $row['request_id'] . "</td>";
                             echo "<td>" . $row['request_date'] . "</td>";
                             echo "<td>" . $row['unit'] . "</td>";
                             echo "<td>" . $row['reasons'] . "</td>";
