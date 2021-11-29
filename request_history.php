@@ -11,163 +11,24 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
 
+    <link rel = "stylesheet" href = "css/home.css">
+
     <style>
 
 
+        .label {
+            color: white;
+            padding: 8px;
+        }
 
-
-
-    .row{
-        padding: 5px;
-    }
-    .fa-tint{
-        color: red;
-    }
-    .blood{
-        float: right;
-    }
-    .fa-users{
-        color: blue;
-        font-size: 3ex;
-    }
-    .fa-spinner{
-        color: blue;
-        font-size: 3ex;
-    }
-    .fa-check-circle{
-        color: blue;
-        font-size: 3ex;
-    }
-    .xyz{
-        color: blue;
-        font-size: 3ex;
-    }
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-body{
-   background-color: #f3f5f9;
-}
-.bg-danger {
-    background-color: #ff0018!important;
-}
-
-.wrapper{
-  display: flex;
-  position: relative;
-}
-
-.wrapper .sidebar{
-  width: 200px;
-  height: 100%;
-  background: 	#343a40;
-  padding: 30px 0px;
-  position: fixed;
-}
-
-.wrapper .sidebar h2{
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.wrapper .sidebar ul li{
-  padding: 15px;
-  border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.wrapper .sidebar ul li a{
-  color: #bdb8d7;
-  display: block;
-}
-
-.wrapper .sidebar ul li a .fas{
-  width: 25px;
-}
-
-.wrapper .sidebar ul li:hover{
-  background-color: #594f8d;
-}
-
-.wrapper .sidebar ul li:hover a{
-  color: #fff;
-}
-
-.wrapper .sidebar .social_media{
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-}
-
-.wrapper .sidebar .social_media a{
-  display: block;
-  width: 40px;
-  background: #594f8d;
-  height: 40px;
-  line-height: 45px;
-  text-align: center;
-  margin: 0 5px;
-  color: #bdb8d7;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.wrapper .main_content{
-  width: 100%;
-  margin-left: 200px;
-}
-
-.wrapper .main_content .header{
-  padding: 20px;
-  background: #fff;
-  color: #717171;
-  border-bottom: 1px solid #e0e4e8;
-}
-
-.wrapper .main_content .info{
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
-}
-
-.wrapper .main_content .info div{
-  margin-bottom: 20px;
-}
-
-@media (max-height: 500px){
-  .social_media{
-    display: none !important;
-  }
-}
-.fa-sign-out-alt{
-    color: white;
-    font-size: 2ex;
-}
-
-.label {
-    color: white;
-    padding: 8px;
-}
-
-.success {background-color: #4CAF50;} /* Green */
-.info {background-color: #2196F3;} /* Blue */
-.warning {background-color: #ff9800;} /* Orange */
-.danger {background-color: #f44336;} /* Red */
-.other {background-color: #e7e7e7; color: black;} /* Gray */
+        .success {background-color: #4CAF50;} /* Green */
+        .info {background-color: #2196F3;} /* Blue */
+        .warning {background-color: #ff9800;} /* Orange */
+        .danger {background-color: #f44336;} /* Red */
+        .other {background-color: #e7e7e7; color: black;} /* Gray */
 
     </style>
+
 </head>
 <body>
 
@@ -208,7 +69,6 @@ body{
         $sql = "SELECT unit, request_date, reasons, status, action FROM blood_request WHERE requester_id = '$requestor_id'";
         $result = mysqli_query($con,$sql);
         $num_rows = mysqli_num_rows($result);
-        echo $num_rows;
 
         if (!$num_rows){
             $num_rows = 0;
@@ -261,13 +121,7 @@ body{
 
     </div>
 </div>
-<!--
-developed By : sumit kumar
-facebook : fb.com/sumit.luv
-youtube : youtube.com/lazycoders
--->
-<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
