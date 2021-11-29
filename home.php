@@ -182,7 +182,7 @@ body{
         
         <ul>
             <li><a style="text-decoration:none;" href="/"><i class="fas fa-home"></i>Home</a></li>
-            <li><a style="text-decoration:none;" href="/donor/donate-blood"><i class="fas fa-hand-holding-medical"></i>Donate Blood</a></li>
+            <li><a style="text-decoration:none;" href="donate_blood.html"><i class="fas fa-hand-holding-medical"></i>Donate Blood</a></li>
             <li><a style="text-decoration:none;" href="/donor/donation-history"><i class="fas fa-history"></i>Donation History</a></li>
             <li><a style="text-decoration:none;" href="/donor/make-request"><i class="fas fa-sync-alt"></i>Blood Request</a></li>
             <li><a style="text-decoration:none;" href="/donor/request-history"><i class="fas fa-history"></i>Request History</a></li>
@@ -203,7 +203,7 @@ body{
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">USER ID</h5>
+                            <h5 class="card-title">User ID</h5>
                             <!-- print userid -->
                             <p class="card-text"><?php
                            
@@ -218,16 +218,31 @@ body{
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Donor Name</h5>
-                            <p class="card-text">{{$donor->name}}</p>
+                            <h5 class="card-title">User Name</h5>
+                            <p class="card-text">
+                            <?php
+                           
+                           echo $_SESSION['first_name'] . " " . $_SESSION['last_name'];
+                           
+                            ?>
+                            </p>
+                          
+                           
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Donor Email</h5>
-                            <p class="card-text">{{$donor->email}}</p>
+                            <h5 class="card-title">Mobile Number</h5>
+                            <p class="card-text">
+                            <?php
+                           
+                           echo $_SESSION['phone_number'];
+                          
+                           ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -236,16 +251,26 @@ body{
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Donor Phone</h5>
-                            <p class="card-text">{{$donor->phone}}</p>
+                            <h5 class="card-title">Blood Type</h5>
+                            <p class="card-text">
+                            <?php
+                           
+                           echo $_SESSION['blood_type'];
+                          
+                           ?>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Donor Address</h5>
-                            <p class="card-text">{{$donor->address}}</p>
+                            <h5 class="card-title">Age</h5>
+                            <p class="card-text"><?php
+                           
+                           echo $_SESSION['age'];
+                          
+                           ?></p>
                         </div>
                     </div>
                 </div>

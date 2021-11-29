@@ -1,0 +1,30 @@
+
+
+body{
+    background-color: #4adab6;
+    background-image: url("../images/donat.jpeg") ;
+    
+  
+}
+
+ panel-body {
+  padding: 15px;
+  align-items: center;
+background-color: #fff;
+}
+.panel {
+   
+
+    
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+    
+    size: 100%;
+    margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgb(36, 33, 33);
+  text-decoration-thickness: 1px;
+  text-size-adjust: 100%;
+  color: rgb(241, 234, 234);
+
+}
