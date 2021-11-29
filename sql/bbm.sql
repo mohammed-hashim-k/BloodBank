@@ -21,7 +21,7 @@ create table admin(
 );
 
 
-create table blood_request( 
+create table blood_request(
     request_id varchar(20) primary key,
     requester_id varchar(20) ,
     unit float not null,
@@ -52,9 +52,16 @@ create table blood_donation(
 );
 
 create table blood_stock(
-    blood_type varchar(2) primary key,
-    unit float not null,
+    apos float not null default 0.0,
+    aneg float not null default 0.0,
+    bpos float not null default 0.0,
+    bneg float not null default 0.0,
+    opos float not null default 0.0,
+    oneg float not null default 0.0,
+    abpos float not null default 0.0,
+    abneg float not null default 0.0,
+
     admin_id varchar(20),
     foreign key(admin_id) references admin(id)   on delete cascade on update cascade
-    
+
 );
