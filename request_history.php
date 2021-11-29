@@ -52,7 +52,7 @@
         <ul>
             <li><a style="text-decoration:none;" href="home.php"><i class="fas fa-home"></i>Home</a></li>
             <li><a style="text-decoration:none;" href="donate_blood.html"><i class="fas fa-hand-holding-medical"></i>Donate Blood</a></li>
-            <li><a style="text-decoration:none;" href="donation_history"><i class="fas fa-history"></i>Donation History</a></li>
+            <li><a style="text-decoration:none;" href="donation_history.php"><i class="fas fa-history"></i>Donation History</a></li>
             <li><a style="text-decoration:none;" href="request_blood.html"><i class="fas fa-sync-alt"></i>Blood Request</a></li>
             <li><a style="text-decoration:none;" href="request_history.php"><i class="fas fa-history"></i>Request History</a></li>
 
@@ -89,6 +89,7 @@
                         <th scope="col">Unit</th>
                         <th scope="col">Reasons</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
 
                     </tr>
                 </thead>
@@ -100,10 +101,11 @@
                     while ($row = mysqli_fetch_assoc($result)){
 
                         echo "<tr>";
-                            echo "<td>" . $row['reqeust_date'] . "</td>";
+                            echo "<td>" . $row['request_date'] . "</td>";
                             echo "<td>" . $row['unit'] . "</td>";
                             echo "<td>" . $row['reasons'] . "</td>";
                             echo "<td>" . $row['status'] . "</td>";
+                            echo "<td>" . $row['action'] . "</td>";
 
                         echo "</tr>";
                     }

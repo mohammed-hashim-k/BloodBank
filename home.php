@@ -44,7 +44,7 @@
         <ul>
             <li><a style="text-decoration:none;" href="home.php"><i class="fas fa-home"></i>Home</a></li>
             <li><a style="text-decoration:none;" href="donate_blood.html"><i class="fas fa-hand-holding-medical"></i>Donate Blood</a></li>
-            <li><a style="text-decoration:none;" href="donation_history"><i class="fas fa-history"></i>Donation History</a></li>
+            <li><a style="text-decoration:none;" href="donation_history.php"><i class="fas fa-history"></i>Donation History</a></li>
             <li><a style="text-decoration:none;" href="request_blood.html"><i class="fas fa-sync-alt"></i>Blood Request</a></li>
             <li><a style="text-decoration:none;" href="request_history.php"><i class="fas fa-history"></i>Request History</a></li>
 
