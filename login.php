@@ -16,9 +16,11 @@
         $row = mysqli_fetch_array($result);
         
         if($row['userid'] == $userid && $row['password'] == $password) {
+            session_start();
             $_SESSION['userid'] = $userid;
             $_SESSION['password'] = $password;
-            header("location: index.html");
+            echo $_SESSION['userid'];
+            header("location: home.php");
         } else {
             echo "<script>alert('Invalid userid or password')</script>";
         }
