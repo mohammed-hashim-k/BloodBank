@@ -1,12 +1,9 @@
 <!-- signup.php -->
 <?php
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $localhost = "localhost";
-    $root = "callisto";
-    $password = "Callisto@123";
-    
-    $con = mysqli_connect($localhost,$root,$password) or die('Could not connect to database');
-    mysqli_select_db($con,"blood_bank");
+
+    include 'database.php';
+
     $userid=$_POST['userid'];
     $password=$_POST['password'];
     $firstname=$_POST['first_name'];
