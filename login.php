@@ -7,11 +7,11 @@
         $userid = $_POST['userid'];
         $password = $_POST['password'];
 
-        $query = "SELECT * FROM user WHERE userid = '$userid' AND password = '$password'";
+        $query = "SELECT * FROM user WHERE userid = '$userid'";
         $result = mysqli_query($con,$query);
         $row = mysqli_fetch_array($result);
 
-        if($row['userid'] == $userid && $row['password'] == $password) {
+        if($row['userid'] == $userid && password_verify($password, $row['password'])) {
             session_start();
             $_SESSION['userid'] = $userid;
             $_SESSION['password'] = $password;

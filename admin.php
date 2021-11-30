@@ -75,8 +75,8 @@
 
         <ul>
             <li><a style="text-decoration:none;" href="admin.php"><i class="fas fa-home"></i>Home</a></li>
-            <li><a style="text-decoration:none;" href="donation_request.php"><i class="fas fa-hand-holding-medical"></i>Donation Request</a></li>
-            <li><a style="text-decoration:none;" href="blood_request.php"><i class="fas fa-history"></i>Blood Request</a></li>
+            <li><a style="text-decoration:none;" href="admin_donation_request.php"><i class="fas fa-hand-holding-medical"></i>Donation Request</a></li>
+            <li><a style="text-decoration:none;" href="admin_blood_request.php"><i class="fas fa-history"></i>Blood Request</a></li>
         </ul>
 
     </div>
