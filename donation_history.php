@@ -77,7 +77,7 @@
 
         <br><br>
         <div class="container">
-            <H4 class="text-center">Blood Request History</H4><br>
+            <H4 class="text-center">Blood Donation History</H4><br>
 
         <h5 class="text-center" style="color: red;"><?php echo $num_rows; ?> Records</h5><br>
 
