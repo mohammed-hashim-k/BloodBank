@@ -78,7 +78,7 @@
 
             <br><br>
             <div class="container">
-                <H4 class="text-center">Blood Donation Requests</H4><br>
+                <H4 class="text-center">Blood Requests</H4><br>
 
             <h5 class="text-center" style="color: red;"><?php echo $num_rows; ?> Records</h5><br>
 
@@ -158,8 +158,8 @@
 
                                 if ($row['status'] == 'pending')
                                 {
-                                    echo "<td><form method = 'POST'><input type = 'submit' name = 'approve' value = 'Approve' class='btn btn-danger'> <br><br>";
-                                    echo "<input type = 'submit' name = 'reject' value = 'Reject' class='btn btn-danger'>";
+                                    echo "<td align='center'><form method = 'POST'><input type = 'submit' name = 'approve' value = 'Approve' class='btn btn-primary badge-pill'> ";
+                                    echo "<input type = 'submit' name = 'reject' value = 'Reject' class='btn btn-danger badge-pill' >";
                                     echo "<input type = 'hidden' name = 'request_id' value = " . $row['request_id'] ." >";
                                     echo "<input type = 'hidden' name = 'requester_id' value = " . $row['requester_id'] ." >";
                                     echo "<input type = 'hidden'  name = 'unit' value = " . $row['unit'] ."></form></td>";
