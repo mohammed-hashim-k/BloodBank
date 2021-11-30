@@ -102,7 +102,10 @@
                     while ($row = mysqli_fetch_assoc($result)){
 
                         echo "<tr>";
+<<<<<<< HEAD
                             echo "<td>" . $row['request_id'] . "</td>";
+=======
+>>>>>>> 2be4ba0 (chng)
                             echo "<td>" . $row['request_date'] . "</td>";
                             echo "<td>" . $row['unit'] . "</td>";
                             echo "<td>" . $row['reasons'] . "</td>";
