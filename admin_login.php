@@ -18,11 +18,11 @@
                 <div class="panel panel-default">
                     <header class="header">
                         <h4>Blood Bank Management System</h4>
-                       
+
                     </header>
                     <h3 class="panel-title">Please sign in</h3>
                     <div style="width:100%;"class="panel-body">
-                        <form style="align-content: center; width: 100%; " action="login.php" method="post">
+                        <form style="align-content: center; width: 100%; " action="admin_login.php" method="post">
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" class="form-control" name="username" placeholder="Username" required>
@@ -39,7 +39,38 @@
                 </div>
             </div>
         </div>
+    </div>
 
-</div>
+    <?php
+
+    if(isset($_POST['submit'])){
+
+        include 'database.php';
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        echo $username;
+
+
+        $query = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+        $result = mysqli_query($con,$query);
+        $row = mysqli_fetch_array($result);
+
+        if($row['username'] == $username && $row['password'] == $password) {
+
+            echo $username;
+
+            session_start();
+            $_SESSION['adminid'] = $row['id'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['password'] = $row['password'];
+
+            header("location: admin.php");
+        }
+
+    }
+
+    ?>
 </body>
 </html>
