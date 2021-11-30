@@ -50,7 +50,6 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        echo $username;
 
 
         $query = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
@@ -59,7 +58,6 @@
 
         if($row['username'] == $username && $row['password'] == $password) {
 
-            echo $username;
 
             session_start();
             $_SESSION['adminid'] = $row['id'];
