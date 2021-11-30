@@ -79,7 +79,7 @@
         <div class="container">
             <H4 class="text-center">Blood Request History</H4><br>
 
-        <h5 class="text-center" style="color: red;"><?php echo $num_rows; ?> Row(s)</h5><br>
+        <h5 class="text-center" style="color: red;"><?php echo $num_rows; ?> Records</h5><br>
 
             <table class="table table-light table-hover table-bordered table-striped">
                 <thead class="bg-info">
@@ -102,10 +102,7 @@
                     while ($row = mysqli_fetch_assoc($result)){
 
                         echo "<tr>";
-<<<<<<< HEAD
                             echo "<td>" . $row['request_id'] . "</td>";
-=======
->>>>>>> 2be4ba0 (chng)
                             echo "<td>" . $row['request_date'] . "</td>";
                             echo "<td>" . $row['unit'] . "</td>";
                             echo "<td>" . $row['reasons'] . "</td>";

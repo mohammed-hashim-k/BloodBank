@@ -66,7 +66,7 @@
         include 'database.php';
 
         $requestor_id = $_SESSION['userid'];
-        $sql = "SELECT unit, donation_id, request_date, diseases, status, action FROM blood_request WHERE donor_id = '$requestor_id'";
+        $sql = "SELECT unit, donation_id, request_date, diseases, status, action FROM blood_donation WHERE donor_id = '$requestor_id'";
         $result = mysqli_query($con,$sql);
         $num_rows = mysqli_num_rows($result);
 
@@ -79,7 +79,7 @@
         <div class="container">
             <H4 class="text-center">Blood Request History</H4><br>
 
-        <h5 class="text-center" style="color: red;"><?php echo $num_rows; ?> Row(s)</h5><br>
+        <h5 class="text-center" style="color: red;"><?php echo $num_rows; ?> Records</h5><br>
 
             <table class="table table-light table-hover table-bordered table-striped">
                 <thead class="bg-info">
