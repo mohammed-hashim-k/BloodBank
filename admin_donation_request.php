@@ -11,6 +11,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
 
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+
     <link rel = "stylesheet" href = "css/home.css">
 
     <style>
@@ -45,11 +49,15 @@
             </ul>
         </div>
       </nav>
-<br><br>
-<div class="wrapper">
+    <br><br>
+    <div class="wrapper">
     <div class="sidebar">
 
-       
+        <ul>
+            <li><a style="text-decoration:none;" href="admin.php"><i class="fas fa-home"></i>Home</a></li>
+            <li><a style="text-decoration:none;" href="admin_donation_request.php"><i class="fas fa-hand-holding-medical"></i>Donation Request</a></li>
+            <li><a style="text-decoration:none;" href="admin_blood_request.php"><i class="fas fa-history"></i>Blood Request</a></li>
+        </ul>
 
     </div>
     <div class="main_content">
@@ -58,8 +66,8 @@
 
         include 'database.php';
 
-        $requestor_id = $_SESSION['userid'];
-        $sql = "SELECT unit, donation_id, request_date, diseases, status, action FROM blood_donation WHERE donor_id = '$requestor_id'";
+        $admin= $_SESSION['adminid'];
+        $sql = "SELECT * FROM blood_donation WHERE admin_id = '$admin'";
         $result = mysqli_query($con,$sql);
         $num_rows = mysqli_num_rows($result);
 
@@ -80,8 +88,9 @@
 
                         <th scope="col">Request Id</th>
                         <th scope="col">Request Date</th>
+                        <th scope="col">User Id</th>
                         <th scope="col">Unit</th>
-                        <th scope="col">Reasons</th>
+                        <th scope="col">Diseases</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
 
@@ -92,25 +101,77 @@
 
                 <?php
 
+                    if(isset($_POST['approve'])) {
+
+                        #echo $_POST['donor_id'];
+
+                        $bloodtype = mysqli_fetch_array(mysqli_query($con, "SELECT blood_type FROM user WHERE userid = '" . $_POST['donor_id'] . "'"));
+                        $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT " . $bloodtype['blood_type'] . " AS unit FROM blood_stock WHERE admin_id = " . $admin));
+
+
+                        $updatedonation = "UPDATE blood_donation SET status = 'approved', action = 'added " . $_POST['unit'] . " units' WHERE donation_id = '" . $_POST['donation_id'] . "'";
+
+                        $update = $currentunit['unit'] + $_POST['unit'];
+                        $updatestock = "UPDATE blood_stock SET " . $bloodtype['blood_type'] . " = " . $update . " WHERE admin_id = " . $admin . "";
+
+
+
+                        if ($con->query($updatedonation) == TRUE && $con->query($updatestock) == TRUE) {
+
+                            header("location: admin_donation_request.php");
+
+                        }
+                        else {
+                            echo "<div class='alert alert-warning alert-dismissible fade show' role='alert' style = 'text-align: center;'>
+                            <strong> Error updating record: " . $con->error . "</strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                            </div>";
+                        }
+
+                    }
+
+                    else if(isset($_POST['reject'])) {
+
+                        $updatedonation = "UPDATE blood_donation SET status = 'rejected', action = 'rejected' WHERE donation_id = '" . $_POST['donation_id'] . "'";
+
+                        if($con->query($updatedonation)) {
+
+                            header("location: admin_donation_request.php");
+                        }
+                        else{
+                            echo "<div class='alert alert-warning alert-dismissible fade show' role='alert' style = 'text-align: center;'>
+                            <strong> Error updating record: " . $con->error . "</strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                            </div>";
+                        }
+
+                    }
+
+
                     while ($row = mysqli_fetch_assoc($result)){
 
                         echo "<tr>";
                             echo "<td>" . $row['donation_id'] . "</td>";
                             echo "<td>" . $row['request_date'] . "</td>";
+                            echo "<td>" . $row['donor_id'] . "</td>";
                             echo "<td>" . $row['unit'] . "</td>";
                             echo "<td>" . $row['diseases'] . "</td>";
-                            echo "<td>" . $row['status'] . "</td>";
-                            if ($row['status'] == 'pending') 
+
+                            if ($row['status'] == 'pending')
                             {
-                                echo "<td><a href='/donation_request_approve.php?id=".$row['donation_id']."' class='btn btn-danger'>Approve</a><a href='/donation_request_reject.php?id=".$row['donation_id']."' class='btn btn-danger'>Reject</a></td>";
-                            }
-                            else
-                            {
-                                echo "<td>No Action</td>";
+                                echo "<td><form method = 'POST'><input type = 'submit' name = 'approve' value = 'Approve' class='btn btn-danger'> <br><br>";
+                                echo "<input type = 'submit' name = 'reject' value = 'Reject' class='btn btn-danger'>";
+                                echo "<input type = 'hidden' name = 'donation_id' value = " . $row['donation_id'] ." >";
+                                echo "<input type = 'hidden' name = 'donor_id' value = " . $row['donor_id'] ." >";
+                                echo "<input type = 'hidden'  name = 'unit' value = " . $row['unit'] ."></form></td>";
 
                             }
-                           
-                            
+
+                            else{
+                                echo "<td>" . $row['status'] . "</td>";
+                            }
+
+                            echo "<td>" . $row['action'] . "</td>";
+
+
 
                         echo "</tr>";
                     }
