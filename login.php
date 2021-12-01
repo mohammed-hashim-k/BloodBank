@@ -1,5 +1,6 @@
-<!-- login -->
 <?php
+    session_start();
+
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         include 'database.php';
@@ -24,8 +25,11 @@
 
 
             header("location: home.php");
-        } else {
-            echo "<script>alert('Invalid userid or password')</script>";
+        }
+        else {
+
+            $_SESSION['error'] = "Invalid Credentials";
+            header("location: index.php");
         }
 
     }

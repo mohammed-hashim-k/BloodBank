@@ -1,9 +1,11 @@
 <!-- login page for blood bank management system -->
+<?php  session_start(); ?>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Blood Bank Management System</title>
+
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -15,6 +17,7 @@
     <link rel="stylesheet" href="css/index.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
   <body>
     <!-- user login username and password -->
@@ -23,17 +26,17 @@
         <div class="col-md-4 col-md-offset-4">
           <div class="panel panel-default">
             <header class="header">
-              <h4>BLOOD BANK MANAGEMENT SYSTEM</h4>
+              <h4 align="center">BLOOD BANK MANAGEMENT SYSTEM</h4>
               <!-- link for admin login -->
 
             </header>
             <!-- user login form -->
-            <h3 class="panel-title">Please sign in</h3>
+            <h3 class="panel-title" align="center">Please sign in</h3>
             <div style="width: 100%" class="panel-body">
               <form
-                action="login.php"
                 method="post"
                 style="align-content: center; width: 100%"
+                action = 'login.php'
               >
                 <div class="form-group">
                   <label for="userid">UserID</label>
@@ -55,7 +58,19 @@
                     required
                   />
                 </div>
-                <div class="form-group">
+
+                <?php
+
+                if(isset($_SESSION['error'])) {
+                    echo "<div align='center'> Invalid Credentials</div><br>";
+
+                }
+                else{
+                    echo "<br><br>";
+                }
+                ?>
+
+                <div class="form-group" align = "center">
                   <input
                     type="submit"
                     class="btn btn-primary"
@@ -66,12 +81,12 @@
               </form>
 
               <!-- link for sign up -->
-              <div class="form-group">
-                   <a href="signup.html" class="btn btn-primary">Sign Up</a><br>
+              <div class="form-group" align = "center">
+                   <a href="signup.html" class="btn btn-primary" >Sign Up</a><br>
               </div>
 
-            <div class="form-group" >
-              <a href="admin_login.php" class="btn btn-primary">Admin Login</a>
+            <div class="form-group" align = "center">
+              <a href="admin_login.php" class="btn btn-primary" >Admin Login</a>
           </div>
             </div>
           </div>
@@ -81,10 +96,12 @@
     <div class="form-group"  >
 
         <p class="lead text-center" ><i>“Opportunities knock the door sometimes, so don’t let it go and donate blood.</i>”
-          </p>
+        </p>
 
 
+    </div>
 
-      </div>
   </body>
 </html>
+
+<?php unset($_SESSION['error']); ?>

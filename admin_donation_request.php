@@ -157,8 +157,8 @@
 
                             if ($row['status'] == 'pending')
                             {
-                                echo "<td><form method = 'POST'><input type = 'submit' name = 'approve' value = 'Approve' class='btn btn-danger'> <br><br>";
-                                echo "<input type = 'submit' name = 'reject' value = 'Reject' class='btn btn-danger'>";
+                                echo "<td align='center'><form method = 'POST'><input type = 'submit' name = 'approve' value = 'Approve' class='btn btn-primary badge-pill'> ";
+                                echo "<input type = 'submit' name = 'reject' value = 'Reject' class='btn btn-danger badge-pill' >";
                                 echo "<input type = 'hidden' name = 'donation_id' value = " . $row['donation_id'] ." >";
                                 echo "<input type = 'hidden' name = 'donor_id' value = " . $row['donor_id'] ." >";
                                 echo "<input type = 'hidden'  name = 'unit' value = " . $row['unit'] ."></form></td>";

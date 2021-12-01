@@ -47,7 +47,7 @@
             <li><a style="text-decoration:none;" href="donation_history.php"><i class="fas fa-history"></i>Donation History</a></li>
             <li><a style="text-decoration:none;" href="request_blood.html"><i class="fas fa-sync-alt"></i>Blood Request</a></li>
             <li><a style="text-decoration:none;" href="request_history.php"><i class="fas fa-history"></i>Request History</a></li>
-
+            <li><a style="text-decoration:none;" href="inventory.php"><i class="fas fa-warehouse"></i> View Inventory</a></li>
 
         </ul>
 
