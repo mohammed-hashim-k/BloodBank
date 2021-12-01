@@ -1,5 +1,4 @@
 
-<!-- signup.php -->
 <?php
     session_start();
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,8 +10,7 @@
     $request_date=date("Y/m/d");
     $donor_id=$_SESSION['userid'];
     $donation_id=uniqid();
-    $admin_id_int=rand(1,5);
-    $admin_id=(string)$admin_id_int;
+    $admin_id='1';
     $status="pending";
     $action="none";
     $sql="INSERT INTO blood_donation VALUES('$donation_id','$donor_id','$unit','$request_date','$diseases','$status','$action','$admin_id')";
