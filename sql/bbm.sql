@@ -17,7 +17,7 @@ create table user(
     last_name varchar(50) not null,
     phone_number varchar(12) not null,
     gender varchar(1) not null,
-    blood_type varchar(2) not null,
+    blood_type varchar(4) not null,
     password varchar(100) not null,
     age int(3) not null
 
@@ -58,16 +58,18 @@ create table blood_donation(
 );
 
 create table blood_stock(
-    apos float not null default 0.0,
-    aneg float not null default 0.0,
-    bpos float not null default 0.0,
-    bneg float not null default 0.0,
-    opos float not null default 0.0,
-    oneg float not null default 0.0,
-    abpos float not null default 0.0,
-    abneg float not null default 0.0,
-
+    blood_type varchar(4) primary key,
+    unit float not null,
     admin_id varchar(20),
     foreign key(admin_id) references admin(id)   on delete cascade on update cascade
 
 );
+insert into blood_stock values('A+',0,'1');
+insert into blood_stock values('A-',0,'1');
+insert into blood_stock values('B+',0,'1');
+insert into blood_stock values('B-',0,'1');
+insert into blood_stock values('AB+',0,'1');
+insert into blood_stock values('AB-',0,'1');
+insert into blood_stock values('O+',0,'1');
+insert into blood_stock values('O-',0,'1');
+

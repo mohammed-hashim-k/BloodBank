@@ -106,13 +106,13 @@
                         #echo $_POST['donor_id'];
 
                         $bloodtype = mysqli_fetch_array(mysqli_query($con, "SELECT blood_type FROM user WHERE userid = '" . $_POST['donor_id'] . "'"));
-                        $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT " . $bloodtype['blood_type'] . " AS unit FROM blood_stock WHERE admin_id = " . $admin));
+                        $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT  unit FROM blood_stock WHERE blood_type = '" . $bloodtype['blood_type'] . "'"));
 
 
                         $updatedonation = "UPDATE blood_donation SET status = 'approved', action = 'added " . $_POST['unit'] . " units' WHERE donation_id = '" . $_POST['donation_id'] . "'";
-
+                        echo $_POST['unit'];
                         $update = $currentunit['unit'] + $_POST['unit'];
-                        $updatestock = "UPDATE blood_stock SET " . $bloodtype['blood_type'] . " = " . $update . " WHERE admin_id = " . $admin . "";
+                        $updatestock = "UPDATE blood_stock SET unit = '" . $update . "',admin_id='" . $_SESSION['adminid'] . "' WHERE blood_type = '" . $bloodtype['blood_type'] . "'";
 
 
 

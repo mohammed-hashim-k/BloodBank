@@ -107,13 +107,13 @@
                             #echo $_POST['donor_id'];
 
                             $bloodtype = mysqli_fetch_array(mysqli_query($con, "SELECT blood_type FROM user WHERE userid = '" . $_POST['requester_id'] . "'"));
-                            $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT " . $bloodtype['blood_type'] . " AS unit FROM blood_stock WHERE admin_id = " . $admin));
+                            $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT  unit FROM blood_stock WHERE blood_type = '" . $bloodtype['blood_type'] . "'"));
 
 
                             $updatedonation = "UPDATE blood_request SET status = 'approved', action = 'removed " . $_POST['unit'] . " units' WHERE request_id = '" . $_POST['request_id'] . "'";
 
                             $update = $currentunit['unit'] - $_POST['unit'];
-                            $updatestock = "UPDATE blood_stock SET " . $bloodtype['blood_type'] . " = " . $update . " WHERE admin_id = " . $admin . "";
+                            $updatestock = "UPDATE blood_stock SET unit = '" . $update . "',admin_id='" . $_SESSION['admin_id'] . "' WHERE blood_type = '" . $bloodtype['blood_type'] . "'";
 
 
 
@@ -151,7 +151,7 @@
 
                             echo "<tr>";
                                 echo "<td>" . $row['request_id'] . "</td>";
-                                echo "<td>" . $row['requester_date'] . "</td>";
+                                echo "<td>" . $row['request_date'] . "</td>";
                                 echo "<td>" . $row['requester_id'] . "</td>";
                                 echo "<td>" . $row['unit'] . "</td>";
                                 echo "<td>" . $row['reasons'] . "</td>";

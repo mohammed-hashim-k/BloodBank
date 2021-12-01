@@ -39,20 +39,12 @@
 
         $id = $_SESSION['adminid'];
 
-        $sql = "SELECT * FROM blood_stock WHERE admin_id = '$id'";
+        $sql = "SELECT * FROM blood_stock ";
         $result = mysqli_query($con,$sql);
-        $row = mysqli_fetch_array($result);
 
-        $apos = $row['apos'];
-        $aneg = $row['aneg'];
-        $bpos = $row['bpos'];
-        $bneg = $row['bneg'];
-        $opos = $row['opos'];
-        $oneg = $row['oneg'];
-        $abpos = $row['abpos'];
-        $abneg = $row['abneg'];
+        
 
-        $total = $apos + $bpos + $opos + $abpos + $aneg + $bneg + $oneg + $abneg;
+       
 
     ?>
 
@@ -84,108 +76,16 @@
 
 <br><br>
 <div class="container">
-
-    <div class="row">
-        <div class="col-sm-3">
-          <div class="card bg-light">
-            <div class="card-body">
-                <div class="blood">
-                    <h2>A+ <i class="fas fa-tint"></i></h2>
-                </div><br><br>
-                <div>
-                    <?php echo $apos ?>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <div class="blood">
-                        <h2>B+ <i class="fas fa-tint"></i></h2>
-                    </div><br><br>
-                    <div>
-                      <?php echo $bpos ?>
-                    </div>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <div class="blood">
-                        <h2>O+ <i class="fas fa-tint"></i></h2>
-                    </div><br><br>
-                    <div>
-                      <?php echo $opos ?>
-                    </div>
-                </div>
-              </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <div class="blood">
-                        <h2>AB+ <i class="fas fa-tint"></i></h2>
-                    </div><br><br>
-                    <div>
-                      <?php echo $abpos ?>
-                    </div>
-                </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="card bg-light">
-            <div class="card-body">
-                <div class="blood">
-                    <h2>A- <i class="fas fa-tint"></i></h2>
-                </div><br><br>
-                <div>
-                  <?php echo $aneg ?>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <div class="blood">
-                        <h2>B- <i class="fas fa-tint"></i></h2>
-                    </div><br><br>
-                    <div>
-                      <?php echo $bneg ?>
-                    </div>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <div class="blood">
-                        <h2>O- <i class="fas fa-tint"></i></h2>
-                    </div><br><br>
-                    <div>
-                      <?php echo $oneg ?>
-                    </div>
-                </div>
-              </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <div class="blood">
-                        <h2>AB- <i class="fas fa-tint"></i></h2>
-                    </div><br><br>
-                    <div>
-                      <?php echo $abneg ?>
-                    </div>
-                </div>
-              </div>
-          </div>
-      </div>
+<?php 
+    while($row = mysqli_fetch_assoc($result))
+    {
+        echo "<td>" . $row['blood_type'] . "    </td>";
+        echo "<td>" . $row['unit'] . "    </td>";
+        echo "<br>";
+    }
+    ?>
+    
+        
 <hr>
 
     <?php

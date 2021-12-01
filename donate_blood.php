@@ -11,7 +11,8 @@
     $request_date=date("Y/m/d");
     $donor_id=$_SESSION['userid'];
     $donation_id=uniqid();
-    $admin_id="1";
+    $admin_id_int=rand(1,5);
+    $admin_id=(string)$admin_id_int;
     $status="pending";
     $action="none";
     $sql="INSERT INTO blood_donation VALUES('$donation_id','$donor_id','$unit','$request_date','$diseases','$status','$action','$admin_id')";
