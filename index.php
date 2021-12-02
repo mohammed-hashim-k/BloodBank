@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
     <!-- Main CSS-->
-    <link rel = "stylesheet" href = "css/index.css">    
+    <link rel = "stylesheet" href = "css/index.css">
     <style>
 
 
@@ -97,13 +97,11 @@
                             <button class="btn btn--radius-2 btn-danger" type="submit">Login</button>
                         </div>
                         <br>
-                        <div align = 'center'>
-                        <a href="signup.php" class="btn btn--radius-2 btn-danger">Sign Up</a>
-                        </div>
+
                     </form>
                     <!-- signup link-->
-                    
-                    
+
+
 
                     <div class="form-group" align = "center">
                         <br>
