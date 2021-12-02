@@ -57,6 +57,7 @@
             <li><a style="text-decoration:none;" href="admin.php"><i class="fas fa-home"></i>Home</a></li>
             <li><a style="text-decoration:none;" href="admin_donation_request.php"><i class="fas fa-hand-holding-medical"></i>Donation Request</a></li>
             <li><a style="text-decoration:none;" href="admin_blood_request.php"><i class="fas fa-history"></i>Blood Request</a></li>
+            <li><a style="text-decoration:none;" href="users.php"> <i class="fas fa-user"></i>Users</a></li>
         </ul>
 
     </div>
@@ -67,7 +68,7 @@
         include 'database.php';
 
         $admin= $_SESSION['adminid'];
-        $sql = "SELECT * FROM blood_donation WHERE admin_id = '$admin'";
+        $sql = "SELECT * FROM blood_donation WHERE ( admin_id = '1' AND status = 'pending' ) OR admin_id = '" . $admin . "'";
         $result = mysqli_query($con,$sql);
         $num_rows = mysqli_num_rows($result);
 
@@ -109,10 +110,10 @@
                         $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT  unit FROM blood_stock WHERE blood_type = '" . $bloodtype['blood_type'] . "'"));
 
 
-                        $updatedonation = "UPDATE blood_donation SET status = 'approved', action = 'added " . $_POST['unit'] . " units' WHERE donation_id = '" . $_POST['donation_id'] . "'";
+                        $updatedonation = "UPDATE blood_donation SET status = 'approved', action = 'added " . $_POST['unit'] . " units', admin_id = '" . $admin . "' WHERE donation_id = '" . $_POST['donation_id'] . "'";
                         echo $_POST['unit'];
                         $update = $currentunit['unit'] + $_POST['unit'];
-                        $updatestock = "UPDATE blood_stock SET unit = '" . $update . "',admin_id='" . $_SESSION['adminid'] . "' WHERE blood_type = '" . $bloodtype['blood_type'] . "'";
+                        $updatestock = "UPDATE blood_stock SET unit = '" . $update . "', admin_id='" . $admin . "' WHERE blood_type = '" . $bloodtype['blood_type'] . "'";
 
 
 
@@ -131,7 +132,7 @@
 
                     else if(isset($_POST['reject'])) {
 
-                        $updatedonation = "UPDATE blood_donation SET status = 'rejected', action = 'rejected' WHERE donation_id = '" . $_POST['donation_id'] . "'";
+                        $updatedonation = "UPDATE blood_donation SET status = 'rejected', action = 'rejected', admin_id = '" . $admin . "' WHERE donation_id = '" . $_POST['donation_id'] . "'";
 
                         if($con->query($updatedonation)) {
 

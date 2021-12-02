@@ -52,35 +52,29 @@
         </ul>
 
     </div>
+
     <div class="main_content">
 
-        <?php
+    <br><br>
+    <div class="container">
+    <?php
 
-            include 'database.php';
+    include 'database.php';
 
-            $id = $_SESSION['adminid'];
+    $id = $_SESSION['adminid'];
 
-            $sql = "SELECT SUM(apos) AS apos, SUM(bpos) AS bpos, SUM(opos) AS opos, SUM(abpos) AS abpos, SUM(aneg) AS aneg, SUM(bneg) AS bneg, SUM(oneg) AS oneg, SUM(abneg) AS abneg FROM blood_stock";
-            $result = mysqli_query($con,$sql);
-            $row = mysqli_fetch_array($result);
+    $sql = "SELECT * FROM blood_stock ";
+    $result = mysqli_query($con,$sql);
 
-            $apos = $row['apos'];
-            $aneg = $row['aneg'];
-            $bpos = $row['bpos'];
-            $bneg = $row['bneg'];
-            $opos = $row['opos'];
-            $oneg = $row['oneg'];
-            $abpos = $row['abpos'];
-            $abneg = $row['abneg'];
 
-            $total = $apos + $bpos + $opos + $abpos + $aneg + $bneg + $oneg + $abneg;
-
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $blood[$row['blood_type']] = $row['unit'];
+        }
         ?>
 
-        <br><br>
-        <div class="container">
 
-            <div class="row">
+        <div class="row">
                 <div class="col-sm-3">
                   <div class="card bg-light">
                     <div class="card-body">
@@ -88,7 +82,7 @@
                             <h2>A+ <i class="fas fa-tint"></i></h2>
                         </div><br><br>
                         <div>
-                            <?php echo $apos ?>
+                            <?php echo $blood['A+']; ?>
                         </div>
                     </div>
                   </div>
@@ -100,7 +94,7 @@
                                 <h2>B+ <i class="fas fa-tint"></i></h2>
                             </div><br><br>
                             <div>
-                              <?php echo $bpos ?>
+                              <?php echo $blood['B+']; ?>
                             </div>
                         </div>
                       </div>
@@ -112,7 +106,7 @@
                                 <h2>O+ <i class="fas fa-tint"></i></h2>
                             </div><br><br>
                             <div>
-                              <?php echo $opos ?>
+                              <?php echo $blood['O+']; ?>
                             </div>
                         </div>
                       </div>
@@ -124,14 +118,14 @@
                                 <h2>AB+ <i class="fas fa-tint"></i></h2>
                             </div><br><br>
                             <div>
-                              <?php echo $abpos ?>
+                              <?php echo $blood['AB+']; ?>
                             </div>
                         </div>
                       </div>
                   </div>
-              </div>
+          </div>
 
-              <div class="row">
+          <div class="row">
                 <div class="col-sm-3">
                   <div class="card bg-light">
                     <div class="card-body">
@@ -139,7 +133,7 @@
                             <h2>A- <i class="fas fa-tint"></i></h2>
                         </div><br><br>
                         <div>
-                          <?php echo $aneg ?>
+                          <?php echo $blood['A-']; ?>
                         </div>
                     </div>
                   </div>
@@ -151,7 +145,7 @@
                                 <h2>B- <i class="fas fa-tint"></i></h2>
                             </div><br><br>
                             <div>
-                              <?php echo $bneg ?>
+                              <?php echo $blood['B-']; ?>
                             </div>
                         </div>
                       </div>
@@ -163,7 +157,7 @@
                                 <h2>O- <i class="fas fa-tint"></i></h2>
                             </div><br><br>
                             <div>
-                              <?php echo $oneg ?>
+                              <?php echo $blood['O-']; ?>
                             </div>
                         </div>
                       </div>
@@ -175,18 +169,15 @@
                                 <h2>AB- <i class="fas fa-tint"></i></h2>
                             </div><br><br>
                             <div>
-                              <?php echo $abneg ?>
+                              <?php echo $blood['AB-']; ?>
                             </div>
                         </div>
                       </div>
                   </div>
-              </div>
-        <hr>
-
-    </div>
-
-    </div>
-
+          </div>
+      </div>
+  </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

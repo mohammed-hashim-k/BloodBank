@@ -42,9 +42,9 @@
         $sql = "SELECT * FROM blood_stock ";
         $result = mysqli_query($con,$sql);
 
-        
 
-       
+
+
 
     ?>
 
@@ -69,6 +69,8 @@
             <li><a style="text-decoration:none;" href="admin.php"><i class="fas fa-home"></i>Home</a></li>
             <li><a style="text-decoration:none;" href="admin_donation_request.php"><i class="fas fa-hand-holding-medical"></i>Donation Request</a></li>
             <li><a style="text-decoration:none;" href="admin_blood_request.php"><i class="fas fa-history"></i>Blood Request</a></li>
+            <li><a style="text-decoration:none;" href="users.php"> <i class="fas fa-user"></i>Users</a></li>
+
         </ul>
 
     </div>
@@ -76,16 +78,117 @@
 
 <br><br>
 <div class="container">
-<?php 
+<?php
     while($row = mysqli_fetch_assoc($result))
     {
-        echo "<td>" . $row['blood_type'] . "    </td>";
-        echo "<td>" . $row['unit'] . "    </td>";
-        echo "<br>";
+        $blood[$row['blood_type']] = $row['unit'];
     }
     ?>
-    
-        
+
+
+    <div class="row">
+        <div class="col-sm-3">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>A+ <i class="fas fa-tint"></i></h2>
+                </div><br><br>
+                <div>
+                    <?php echo $blood['A+']; ?>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>B+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      <?php echo $blood['B+']; ?>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>O+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      <?php echo $blood['O+']; ?>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>AB+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      <?php echo $blood['AB+']; ?>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+              <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>A- <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      <?php echo $blood['A-']; ?>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="blood">
+                            <h2>B- <i class="fas fa-tint"></i></h2>
+                        </div><br><br>
+                        <div>
+                          <?php echo $blood['B-']; ?>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="blood">
+                            <h2>O- <i class="fas fa-tint"></i></h2>
+                        </div><br><br>
+                        <div>
+                          <?php echo $blood['O-']; ?>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="blood">
+                            <h2>AB- <i class="fas fa-tint"></i></h2>
+                        </div><br><br>
+                        <div>
+                          <?php echo $blood['AB-']; ?>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
 <hr>
 
     <?php
@@ -93,12 +196,12 @@
         $users = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(*) as total FROM user"));
         $pendingsql = "SELECT COUNT(*) as pending FROM ( SELECT * FROM blood_request UNION SELECT * FROM blood_donation ) AS t WHERE status = 'pending'";
         $pending = mysqli_fetch_array(mysqli_query($con,$pendingsql));
-        $approvedsql = "SELECT COUNT(*) as approved FROM ( SELECT * FROM blood_request UNION SELECT * FROM blood_donation ) AS t WHERE status = 'approved'";
+        $approvedsql = "SELECT COUNT(*) as approved FROM ( SELECT * FROM blood_request UNION SELECT * FROM blood_donation ) AS t WHERE status = 'approved' AND admin_id = '" . $_SESSION['adminid'] . "'";
         $approved = mysqli_fetch_array(mysqli_query($con, $approvedsql));
-
-
+        $blood_count = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(unit) AS count FROM blood_stock"));
 
     ?>
+
     <div class="row">
       <div class="col-sm-3">
         <div class="card bg-light">
@@ -147,7 +250,7 @@
                   </div><br>
                   <div>
                       Total Blood Unit (in ml) <br>
-                      <?php echo $total ?>
+                      <?php echo $blood_count['count']; ?>
                   </div>
               </div>
             </div>
