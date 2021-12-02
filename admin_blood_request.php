@@ -108,8 +108,13 @@
 
                         if(isset($_POST['approve'])) {
 
+<<<<<<< HEAD
                             #this is executed if the request is approved. The blood_stock and blood_request table is updated.
                             #echo $_POST['donor_id'];
+=======
+                            //if admin presses approve button unit of particular blood_type is decremented in blood_stock 
+                            //also status of this request will be changed to approved in request table
+>>>>>>> 014a5a1 (added comments)
 
                             $bloodtype = mysqli_fetch_array(mysqli_query($con, "SELECT blood_type FROM user WHERE userid = '" . $_POST['requester_id'] . "'"));
                             $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT  unit FROM blood_stock WHERE blood_type = '" . $bloodtype['blood_type'] . "'"));
@@ -136,6 +141,7 @@
                         }
 
                         else if(isset($_POST['reject'])) {
+                            //if admin reject request then status become rejected.
 
                             #if the request is rejected, the blood_reqeust table is updated.
 
