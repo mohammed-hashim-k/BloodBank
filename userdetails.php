@@ -149,12 +149,7 @@
                  ?>
 
                  <div align = 'center' class="col-md-4">
-                    <form method = 'post'>
-                        <br><br>
-                        <input type = 'submit' name = 'remove' value = 'Remove User' class='btn btn-danger badge-pill' >
-                        <?php echo "<input type = 'hidden' name = 'id' value = " . $row['userid'] ." >"; ?>
-                    </form>
-                </div>
+                 </div>
                  <div class="col-md-4">
                      <div class="card">
                          <div class="card-body">
@@ -167,10 +162,22 @@
                          </div>
                      </div>
                  </div>
-     </div>
+             </div>
+
+             <div class="row">
+                 <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+             <form method = 'post'>
+                 <br><br>
+                 <input type = 'submit' name = 'remove' value = 'Remove User' class='btn btn-danger badge-pill' >
+                 <?php echo "<input type = 'hidden' name = 'id' value = " . $row['userid'] ." >"; ?>
+             </form>
+         </div>
  </div>
 </div>
-
+</div>
+</div>
 
 </body>
 </html
