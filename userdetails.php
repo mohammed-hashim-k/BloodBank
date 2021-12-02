@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- user details for admin -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +58,7 @@
         <div class="container">
             <H4 class="text-center">Users</H4><br>
         <?php
-
+        # retrieving the user details which the admin clicked.
             include 'database.php';
 
             $row = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM user WHERE userid = '" . $_POST['userid'] . "'"));
@@ -131,6 +132,8 @@
                  <?php
 
                      if(isset($_POST['remove'])) {
+
+                         #to remove the user admin specified.
 
                          $sql = "DELETE FROM user WHERE userid = '" . $_POST['id'] . "'";
 

@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- admin blood donation reqeust page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +65,8 @@
     <div class="main_content">
 
     <?php
+
+        #all the pending blood donation request and admin specific requests.
 
         include 'database.php';
 

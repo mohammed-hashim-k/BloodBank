@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- admin blood reqeust page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,9 +66,11 @@
 
         <?php
 
+            #retrieving all the pending requests and admin specific approved or rejected requests.
+
             include 'database.php';
 
-            $admin= $_SESSION['adminid'];
+            $admin= $_SESSION['adminid'];   #currently logged in admin in this session
             $sql = "SELECT * FROM blood_request WHERE ( admin_id = '1' AND status = 'pending' ) OR admin_id = '" . $admin . "'";
             $result = mysqli_query($con,$sql);
             $num_rows = mysqli_num_rows($result);
@@ -105,6 +108,7 @@
 
                         if(isset($_POST['approve'])) {
 
+                            #this is executed if the request is approved. The blood_stock and blood_request table is updated.
                             #echo $_POST['donor_id'];
 
                             $bloodtype = mysqli_fetch_array(mysqli_query($con, "SELECT blood_type FROM user WHERE userid = '" . $_POST['requester_id'] . "'"));
@@ -133,6 +137,8 @@
 
                         else if(isset($_POST['reject'])) {
 
+                            #if the request is rejected, the blood_reqeust table is updated.
+
                             $updatedonation = "UPDATE blood_request SET status = 'rejected', action = 'rejected', admin_id = '" . $admin . "' WHERE request_id = '" . $_POST['request_id'] . "'";
 
                             if($con->query($updatedonation)) {
@@ -149,6 +155,7 @@
 
 
                         while ($row = mysqli_fetch_assoc($result)){
+                            #printing all the request
 
                             echo "<tr>";
                                 echo "<td>" . $row['request_id'] . "</td>";
@@ -159,6 +166,7 @@
 
                                 if ($row['status'] == 'pending')
                                 {
+                                    #request specific details for transfering with the post request.
                                     echo "<td align='center'><form method = 'POST'><input type = 'submit' name = 'approve' value = 'Approve' class='btn btn-primary badge-pill'><br><br> ";
                                     echo "<input type = 'submit' name = 'reject' value = 'Reject' class='btn btn-danger badge-pill' >";
                                     echo "<input type = 'hidden' name = 'request_id' value = " . $row['request_id'] ." >";

@@ -1,4 +1,4 @@
-
+<!-- login page of the user -->
 <!DOCTYPE html>
 <?php  session_start(); ?>
 <html lang="en" dir="ltr">
@@ -97,6 +97,11 @@
                             <button class="btn btn--radius-2 btn-danger" type="submit">Login</button>
                         </div>
                     </form>
+
+                    <div class="form-group" align = "center">
+                        <br>
+                         No Account? <a href="signup.php" >Sign Up</a><br>
+                    </div>
 
                 <?php
 

@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- home page of the user -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +55,7 @@
     </div>
     <div class="main_content">
 
+        <!-- displaying all user details -->
 
         <div class="header">
             <h3 class="text-center">Donor Dashboard</h3>

@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- blood doantion request page for users -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,6 +107,8 @@
 
                         <div align = 'center'>
                             <?php
+
+                            #for inserting the donation request to the database.
 
                                if($_SERVER["REQUEST_METHOD"] == "POST") {
 

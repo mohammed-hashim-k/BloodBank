@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- all the blood request user has specified -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

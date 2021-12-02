@@ -1,4 +1,4 @@
-<!-- admin_login.html -->
+<!-- admin login page-->
 <?php session_start(); ?>
 <html>
 <head>
@@ -76,6 +76,7 @@
                         </form>
                         <div align = 'center'>
                         <?php
+                            #for printing error message if the session variable error is set. For invalid credentials.
                             if(isset($_SESSION['error'])){
                                 echo "Invalid Credentials";
                                 unset($_SESSION['error']);
@@ -93,6 +94,7 @@
 
     <?php
 
+    #checking the username password combination on form submission.
     if(isset($_POST['submit'])){
 
         include 'database.php';
@@ -114,10 +116,13 @@
             $_SESSION['username'] = $row['username'];
             $_SESSION['password'] = $row['password'];
 
+            #redirecting to admin home page
             header("location: admin.php");
         }
 
         else{
+
+            #redirecting to the same page with error message in the session variable
             $_SESSION['error'] = 'error';
             header("location: admin_login.php");
         }

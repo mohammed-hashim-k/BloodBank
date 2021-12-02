@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- admin home page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

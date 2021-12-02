@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- for printing all the users in the system -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +66,8 @@
             <H4 class="text-center">Users</H4><br>
         <?php
 
+        #retrieving all users from the database
+        
             include 'database.php';
 
             $admin= $_SESSION['adminid'];

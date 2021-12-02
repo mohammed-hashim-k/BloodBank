@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- inventory page for the user -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,6 +61,8 @@
     <?php
 
     include 'database.php';
+
+    #retrieving all the blood available in the blood stock
 
     $id = $_SESSION['adminid'];
 

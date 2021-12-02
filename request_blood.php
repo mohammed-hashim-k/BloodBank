@@ -1,4 +1,5 @@
 <?php  session_start(); ?>
+<!-- blood request page for users -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,6 +122,7 @@
 
                   $row = mysqli_fetch_array(mysqli_query($con, "SELECT unit FROM blood_stock WHERE blood_type IN (SELECT blood_type FROM user WHERE userid = '$requestor_id') "));
 
+                  # if the user requests for more blood than there is in the stock, request is denied
                   if($row['unit'] > $unit) {
                       $sql="INSERT INTO blood_request VALUES('$request_id','$requestor_id','$unit','$request_date','$reason','$status','$action','$admin_id')";
 

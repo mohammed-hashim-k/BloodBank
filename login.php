@@ -1,4 +1,5 @@
 <?php
+#php file for checking the login credentials for the user
     session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
