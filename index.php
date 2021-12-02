@@ -104,11 +104,14 @@
                     <!-- signup link-->
                     
                     
+<<<<<<< HEAD
 
                     <div class="form-group" align = "center">
                         <br>
                          No Account? <a href="signup.php" >Sign Up</a><br>
                     </div>
+=======
+>>>>>>> akashw-22-master
 
                 <?php
 

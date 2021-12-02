@@ -26,6 +26,7 @@
     $age=$_POST['age'];
 
     $sql="INSERT INTO user VALUES ('$userid','$firstname','$lastname','$phone_number','$gender','$blood_type','$hashed_password','$age')";//insert user details to user table
+<<<<<<< HEAD
 >>>>>>> 2e218ac (added comments)
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
@@ -188,6 +189,8 @@
                             echo "Error: " . $sql . "<br>" . $con->error;
                         }
 
+=======
+>>>>>>> akashw-22-master
 
 
                        }

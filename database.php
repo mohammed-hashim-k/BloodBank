@@ -4,10 +4,13 @@
 
     $localhost = "localhost";
 <<<<<<< HEAD
+<<<<<<< HEAD
     $root = "root";
     $password = "password";
     $con = mysqli_connect($localhost,$root,$password) or die('Could not connect to database');  #connection variable.
 =======
+=======
+>>>>>>> akashw-22-master
     $root = "callisto";
     $password = "Callisto@123";
     $con = mysqli_connect($localhost,$root,$password) or die('Could not connect to database');
