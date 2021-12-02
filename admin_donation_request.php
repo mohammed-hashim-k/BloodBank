@@ -115,7 +115,7 @@
 
 
                         $updatedonation = "UPDATE blood_donation SET status = 'approved', action = 'added " . $_POST['unit'] . " units', admin_id = '" . $admin . "' WHERE donation_id = '" . $_POST['donation_id'] . "'";
-                        echo $_POST['unit'];
+                        
                         $update = $currentunit['unit'] + $_POST['unit'];
                         $updatestock = "UPDATE blood_stock SET unit = '" . $update . "', admin_id='" . $admin . "' WHERE blood_type = '" . $bloodtype['blood_type'] . "'";
 
