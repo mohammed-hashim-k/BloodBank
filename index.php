@@ -1,107 +1,129 @@
-<!-- login page for blood bank management system -->
+
+<!DOCTYPE html>
 <?php  session_start(); ?>
-<html>
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blood Bank Management System</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="css/index.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link rel = "stylesheet" href = "css/index.css">
+    <style>
+
+
+    </style>
   </head>
-  <body>
-    <!-- user login username and password -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <div class="panel panel-default">
-            <header class="header">
-              <h4 align="center">BLOOD BANK MANAGEMENT SYSTEM</h4>
-              <!-- link for admin login -->
 
-            </header>
-            <!-- user login form -->
-            <h3 class="panel-title" align="center">Please sign in</h3>
-            <div style="width: 100%" class="panel-body">
-              <form
-                method="post"
-                style="align-content: center; width: 100%"
-                action = 'login.php'
-              >
-                <div class="form-group">
-                  <label for="userid">UserID</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="userid"
-                    placeholder="UserID"
-                    required
-                  />
+  <body>
+
+
+
+        <div class="bs-example">
+          <nav style="background-color: #FF0018;" class="navbar navbar-expand-md navbar-dark fixed-top">
+              <a style="color:white;" class="navbar-brand"><i class="fab fa-gratipay"></i>&nbsp;<font face = "Comic sans MS" size ="4">Blood Bank Management System</font></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+
+              <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" style="color: white;" href="admin_login.php"  ><i class="fas fa-user-shield"></i>&nbsp; Admin</i></a>
+                      </li>
+
+                  </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <br><br><br>
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">User Login</h2>
                 </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    name="password"
-                    placeholder="Password"
-                    required
-                  />
-                </div>
+                <div class="card-body">
+                    <form method="POST" action = 'login.php'>
+                        <div class="form-row">
+                            <div class="name">Username</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      name="userid"
+                                      placeholder="UserID"
+                                      required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input
+                                      type="password"
+                                      class="form-control"
+                                      name="password"
+                                      placeholder="Password"
+                                      required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div align = 'center'>
+                            <button class="btn btn--radius-2 btn-danger" type="submit">Login</button>
+                        </div>
+                    </form>
 
                 <?php
 
-                if(isset($_SESSION['error'])) {
-                    echo "<div align='center'> Invalid Credentials</div><br>";
+                    if(isset($_SESSION['error'])) {
+                        echo "<div align='center'> Invalid Credentials</div><br>";
+                        unset($_SESSION['error']);
+                    }
+                    else{
+                        echo "<br><br>";
+                    }
+                    ?>
 
-                }
-                else{
-                    echo "<br><br>";
-                }
-                ?>
-
-                <div class="form-group" align = "center">
-                  <input
-                    type="submit"
-                    class="btn btn-primary"
-                    name="submit"
-                    value="Login"
-                  />
                 </div>
-              </form>
-
-              <!-- link for sign up -->
-              <div class="form-group" align = "center">
-                   <a href="signup.html" class="btn btn-primary" >Sign Up</a><br>
-              </div>
-
-            <div class="form-group" align = "center">
-              <a href="admin_login.php" class="btn btn-primary" >Admin Login</a>
-          </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <div class="form-group"  >
-
-        <p class="lead text-center" ><i>“Opportunities knock the door sometimes, so don’t let it go and donate blood.</i>”
-        </p>
 
 
-    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>
-
-<?php unset($_SESSION['error']); ?>
+<!--
+developed By : sumit kumar
+facebook : fb.com/sumit.luv
+youtube : youtube.com/lazycoders
+-->

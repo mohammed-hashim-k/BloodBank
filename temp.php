@@ -1,0 +1,107 @@
+<!-- login page for blood bank management system -->
+<?php  session_start(); ?>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blood Bank Management System</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <!-- user login username and password -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="panel panel-default">
+            <header class="header">
+              <h4 align="center">BLOOD BANK MANAGEMENT SYSTEM</h4>
+              <!-- link for admin login -->
+
+            </header>
+            <!-- user login form -->
+            <h3 class="panel-title" align="center">Please sign in</h3>
+            <div style="width: 100%" class="panel-body">
+              <form
+                method="post"
+                style="align-content: center; width: 100%"
+                action = 'login.php'
+              >
+                <div class="form-group">
+                  <label for="userid">UserID</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="userid"
+                    placeholder="UserID"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+
+                <?php
+
+                if(isset($_SESSION['error'])) {
+                    echo "<div align='center'> Invalid Credentials</div><br>";
+
+                }
+                else{
+                    echo "<br><br>";
+                }
+                ?>
+
+                <div class="form-group" align = "center">
+                  <input
+                    type="submit"
+                    class="btn btn-primary"
+                    name="submit"
+                    value="Login"
+                  />
+                </div>
+              </form>
+
+              <!-- link for sign up -->
+              <div class="form-group" align = "center">
+                   <a href="signup.html" class="btn btn-primary" >Sign Up</a><br>
+              </div>
+
+            <div class="form-group" align = "center">
+              <a href="admin_login.php" class="btn btn-primary" >Admin Login</a>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group"  >
+
+        <p class="lead text-center" ><i>“Opportunities knock the door sometimes, so don’t let it go and donate blood.</i>”
+        </p>
+
+
+    </div>
+
+  </body>
+</html>
+
+<?php unset($_SESSION['error']); ?>
