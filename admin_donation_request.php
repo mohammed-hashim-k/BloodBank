@@ -107,7 +107,7 @@
 
                     if(isset($_POST['approve'])) {
 
-                        #echo $_POST['donor_id'];
+                        
 
                         $bloodtype = mysqli_fetch_array(mysqli_query($con, "SELECT blood_type FROM user WHERE userid = '" . $_POST['donor_id'] . "'"));
                         $currentunit = mysqli_fetch_array(mysqli_query($con, "SELECT  unit FROM blood_stock WHERE blood_type = '" . $bloodtype['blood_type'] . "'"));

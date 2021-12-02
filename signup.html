@@ -1,0 +1,89 @@
+
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blood Bank Management System Register</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- user login username and password -->
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+<div class="panel panel-default">
+<header class="header">
+<h4><mark>REGISTRATION</mark>   </h4>
+
+</header>
+    <!-- user login form -->
+    <h3 class="panel-title">Please signup</h3>
+    <div style="width:100%;"class="panel-body">
+        <form  action="signup.php" method="post" style="align-content: center; width: 100%; ">
+            <div class="form-group">
+                <label for="userid">UserID</label>
+                <input type="text" class="form-control" name="userid" placeholder="UserID" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"   class="form-control" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" name="first_name" placeholder="first name" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" name="last_name" placeholder="last name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" size="12" class="form-control" name="phone_number" placeholder="phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select name="gender" class="form-control">
+                    <option value="m">M</option>
+                    <option value="f">F</option>
+                </select>
+            </div>
+            <!-- blood_type -->
+            <div class="form-group">
+                <label for="blood_type">Blood Type</label>
+                <select name="blood_type" class="form-control">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+
+            </div>
+            <!-- age -->
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" min="16" max="80"class="form-control" name="age" placeholder="age" required>
+
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" name="submit" value="Signup">
+            </div>
+        </form>
+
+
+
+
+
+
+</div>
+</body>
+</html>

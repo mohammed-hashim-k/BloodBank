@@ -70,7 +70,7 @@
                             <!-- print userid -->
                             <p class="card-text"><?php
 
-                            echo $_SESSION['userid'];
+                            echo $_SESSION['userid'];//user id
 
                             ?></p>
 
@@ -85,7 +85,7 @@
                             <p class="card-text">
                             <?php
 
-                           echo $_SESSION['first_name'] . " " . $_SESSION['last_name'];
+                           echo $_SESSION['first_name'] . " " . $_SESSION['last_name'];//name
 
                             ?>
                             </p>
@@ -102,7 +102,7 @@
                             <p class="card-text">
                             <?php
 
-                           echo $_SESSION['phone_number'];
+                           echo $_SESSION['phone_number'];//phone number
 
                            ?>
                             </p>
@@ -118,7 +118,7 @@
                             <p class="card-text">
                             <?php
 
-                           echo $_SESSION['blood_type'];
+                           echo $_SESSION['blood_type'];//blood type
 
                            ?>
                             </p>
@@ -132,7 +132,7 @@
                             <h5 class="card-title">Age</h5>
                             <p class="card-text"><?php
 
-                           echo $_SESSION['age'];
+                           echo $_SESSION['age'];//age
 
                            ?></p>
                         </div>

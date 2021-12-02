@@ -104,7 +104,7 @@
                     while ($row = mysqli_fetch_assoc($result)){
 
                         echo "<tr>";
-                            echo "<td>" . $row['request_id'] . "</td>";
+                            echo "<td>" . $row['request_id'] . "</td>";  
                             echo "<td>" . $row['request_date'] . "</td>";
                             echo "<td>" . $row['unit'] . "</td>";
                             echo "<td>" . $row['reasons'] . "</td>";
