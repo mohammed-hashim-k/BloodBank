@@ -11,23 +11,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<<<<<<< HEAD
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-=======
-    $userid=$_POST['userid'];
-    $password=$_POST['password'];
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);//hashing the password
-    $firstname=$_POST['first_name'];
-    $lastname=$_POST['last_name'];
-    $phone_number=$_POST['phone_number'];
-    $gender=$_POST['gender'];
-    $blood_type=$_POST['blood_type'];
-    $age=$_POST['age'];
-
-    $sql="INSERT INTO user VALUES ('$userid','$firstname','$lastname','$phone_number','$gender','$blood_type','$hashed_password','$age')";//insert user details to user table
-<<<<<<< HEAD
->>>>>>> 2e218ac (added comments)
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
 
@@ -189,8 +174,6 @@
                             echo "Error: " . $sql . "<br>" . $con->error;
                         }
 
-=======
->>>>>>> akashw-22-master
 
 
                        }

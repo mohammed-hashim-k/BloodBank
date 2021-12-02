@@ -98,20 +98,17 @@
                         </div>
                         <br>
                         <div align = 'center'>
-                        <a href="signup.html" class="btn btn--radius-2 btn-danger">Sign Up</a>
+                        <a href="signup.php" class="btn btn--radius-2 btn-danger">Sign Up</a>
                         </div>
                     </form>
                     <!-- signup link-->
                     
                     
-<<<<<<< HEAD
 
                     <div class="form-group" align = "center">
                         <br>
                          No Account? <a href="signup.php" >Sign Up</a><br>
                     </div>
-=======
->>>>>>> akashw-22-master
 
                 <?php
 
