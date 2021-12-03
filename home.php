@@ -58,7 +58,7 @@
         <!-- displaying all user details -->
 
         <div class="header">
-            <h3 class="text-center">Donor Dashboard</h3>
+            <h3 class="text-center">User Dashboard</h3>
         </div>
 
         <div class="info">
