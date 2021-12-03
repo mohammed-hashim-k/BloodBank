@@ -113,7 +113,7 @@
 
                   $unit=$_POST['unit'];
                   $reason=$_POST['Reason'];
-                  $request_date=date("Y/m/d");
+                  $request_date=date("Y/m/d h:i:s");
                   $requestor_id=$_SESSION['userid'];
                   $request_id=uniqid();
                   $admin_id='1';

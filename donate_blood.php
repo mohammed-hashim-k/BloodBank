@@ -116,13 +116,13 @@
 
                                 $unit=$_POST['unit'];
                                 $diseases=$_POST['diseases'];
-                                $request_date=date("Y/m/d");
+                                $request_date=date("Y/m/d h:i:s");
                                 $donor_id=$_SESSION['userid'];
                                 $donation_id=uniqid();
                                 $admin_id='1';
                                 $status="pending";
                                 $action="none";
-                                $sql="INSERT INTO blood_donation VALUES('$donation_id','$donor_id','$unit','$request_date','$diseases','$status','$action','$admin_id')";
+                                $sql="INSERT INTO blood_donation VALUES('$donation_id','$donor_id','$unit','$request_date','$diseases','$status','$action','$admin_id')";//
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-                                if($con->query($sql)==TRUE){
+                                if($con->query($sql)==TRUE){    
                                     echo "Requested Succesfully";
 
                                 }

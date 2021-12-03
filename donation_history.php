@@ -92,7 +92,7 @@
                         <th scope="col">Request Id</th>
                         <th scope="col">Request Date</th>
                         <th scope="col">Unit</th>
-                        <th scope="col">Reasons</th>
+                        <th scope="col">Diseases</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
 
