@@ -22,6 +22,16 @@ This is a blood bank management system. The website is implemented in php with m
 ## Configuration
 * PHP Version: 7.4.3
 * MySQL Versions: 8.0.27
+* Apache Version: 2.4.29
+
+
+## Installation
+* User needs to edit root and password in the database.php file for his/her mysql database.
+* User neeeds to create database named blood_bank in mysql database.
+* User needs to create tables in the database.(just copy and paste contents in sql/bbm.sql file)
+* Run development server in the terminal.(php -S localhost:8000)
+
 
 ## Commands
     php -S 127.0.0.1:8000
+
